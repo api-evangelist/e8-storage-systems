@@ -1,8 +1,28 @@
 aid: e8-storage-systems
+accessModel:
+  pricing: unknown
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Unknown
+  confidence: low
+  source: []
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/e8-storage-systems.png
 name: E8 Storage Systems
-description: 'E8 Storage Systems is a company surfaced as a portfolio company of accel and added to the
-  API Evangelist network as a stub for enrichment. Sector: big-data. This profile is a lead awaiting the
-  enrichment pipeline.'
+description: >-
+  E8 Storage Systems was an Israeli enterprise storage startup that built rack-scale
+  NVMe flash arrays, separating high-performance shared flash from compute so that
+  data-intensive workloads could reach local-NVMe latency over the network. The company
+  was backed by Accel and was acquired by Amazon; the acquisition was reported on
+  2019-07-31. E8 no longer operates as an independent vendor and publishes no developer
+  portal, documentation, or public API. Its historical domain, e8storage.com, is retained
+  defensively but does not resolve: there are no address or mail records, and DMARC
+  aggregate reports are directed to dmarc.amazon.com. This profile is retained in the
+  API Evangelist network as a historical big-data and storage-infrastructure record with
+  no active API surface to enrich.
 url: https://raw.githubusercontent.com/api-evangelist/e8-storage-systems/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -10,15 +30,35 @@ x-backed-by:
 - accel
 x-tier: stub
 x-tier-reason: portfolio-lead
+x-status: acquired
+x-acquired-by: amazon
+x-acquired-date: '2019-07-31'
+x-operating: false
+x-api-surface: none
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-20'
 tags:
 - Company
 - Big Data
+- Storage
+- NVMe
+- Flash Storage
+- Data Infrastructure
+- Enterprise Storage
+- Acquired
+- Israel
 apis: []
+common:
+- type: DomainSecurity
+  url: security/e8-storage-systems-domain-security.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+x-enrichment:
+  date: '2026-07-20'
+  status: minimal
+  artifacts_added: 1
+  pass: local-v1

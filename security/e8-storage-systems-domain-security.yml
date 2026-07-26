@@ -1,0 +1,75 @@
+generated: '2026-07-20'
+method: probed
+source: DNS/TLS probe of e8storage.com (dig + curl), 2026-07-20
+name: E8 Storage Systems Domain Security
+description: >-
+  DNS and TLS posture probe of the historical E8 Storage Systems domain
+  e8storage.com. The domain is retained but no longer serves web content: there
+  is no A or AAAA record and no MX record, so the host does not resolve and
+  cannot be reached over HTTPS. Authoritative nameservers are MarkMonitor and
+  the DMARC aggregate/forensic reports are directed to dmarc.amazon.com, which
+  is consistent with Amazon's 2019 acquisition of the company and its retention
+  of the domain as a defensive registration.
+domains:
+  - domain: e8storage.com
+    resolves: false
+    records:
+      a: []
+      aaaa: []
+      mx: []
+      ns:
+        - ns1.markmonitor.com
+        - ns2.markmonitor.com
+        - ns3.markmonitor.com
+        - ns4.markmonitor.com
+        - ns5.markmonitor.com
+        - ns6.markmonitor.com
+        - ns7.markmonitor.com
+      soa: ns1.markmonitor.com. hostmaster.markmonitor.com. 2023052501
+    tls:
+      https_status: null
+      note: not testable - no address record, connection could not be established
+    hsts:
+      present: false
+      note: not testable - no HTTPS endpoint
+    dnssec:
+      enabled: false
+      dnskey: []
+      ds: []
+    caa:
+      present: false
+      records: []
+    spf:
+      present: true
+      record: v=spf1 -all
+      policy: hard-fail all senders (domain sends no mail)
+    dmarc:
+      present: true
+      record: 'v=DMARC1; p=reject; rua=mailto:report@dmarc.amazon.com; ruf=mailto:report@dmarc.amazon.com'
+      policy: reject
+      reporting_org: amazon.com
+  - domain: www.e8storage.com
+    resolves: false
+    records:
+      a: []
+findings:
+  - severity: info
+    finding: >-
+      Domain is parked defensively, not operated. No A/AAAA/MX records and an
+      SPF hard-fail plus DMARC p=reject means the domain is locked down against
+      spoofing while serving no traffic.
+  - severity: info
+    finding: >-
+      DMARC reporting addresses under dmarc.amazon.com indicate the domain is
+      administered by Amazon following the 2019 acquisition.
+  - severity: low
+    finding: DNSSEC is not enabled on the zone.
+  - severity: low
+    finding: No CAA records are published.
+probes:
+  - target: https://e8storage.com/
+    status: null
+    result: DNS resolution failure (curl exit 6)
+  - target: https://www.e8storage.com/
+    status: null
+    result: DNS resolution failure (curl exit 6)
