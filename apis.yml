@@ -35,7 +35,7 @@ x-acquired-by: amazon
 x-acquired-date: '2019-07-31'
 x-operating: false
 x-api-surface: none
-specificationVersion: '0.20'
+specificationVersion: '0.23'
 created: '2026-07-17'
 modified: '2026-07-20'
 tags:
