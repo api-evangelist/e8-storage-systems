@@ -61,6 +61,11 @@ tags:
 - Israel
 apis: []
 common:
+- type: ParentCompany
+  url: https://apis.io/providers/amazon/
+  name: Amazon
+  x-relationship: acquired
+  x-evidence: "The company was backed by Accel and was acquired by Amazon; the acquisition was reported on 2019-07-31."
 - type: DomainSecurity
   url: security/e8-storage-systems-domain-security.yml
 maintainers:
